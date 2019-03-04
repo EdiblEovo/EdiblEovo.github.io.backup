@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>HelloWorld! · EdiblE&#39;s Blog</title>
+    <title>Mask-RCNN Benchmark填坑记录 · EdiblE&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">EdiblE&#39;s Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">HelloWorld!</a>
+                <a href="#" class="post-name">Mask-RCNN Benchmark填坑记录</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            HelloWorld!
+            Mask-RCNN Benchmark填坑记录
             <!-- 404 -->
             
         </h1>
@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">7</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">276</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -395,11 +395,18 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>#OH</p>
-<p>##THIS</p>
-<p>###IS JUST A TEST</p>
-<p>ovo</p>
-
+        <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li>CPU: I5 6400</li>
+<li>GPU: GTX 1070(notebook)</li>
+<li>内存: 16G</li>
+<li>系统: Linux Mint 19.1 Cinnamon</li>
+</ul>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p><a href="https://github.com/facebookresearch/maskrcnn-benchmark/blob/master/INSTALL.md" target="_blank" rel="noopener">官方文档</a><br><a href="https://blog.csdn.net/x572722344/article/details/84934188" target="_blank" rel="noopener">参考教程</a></p>
+<h2 id="安装时遇到的坑"><a href="#安装时遇到的坑" class="headerlink" title="安装时遇到的坑"></a>安装时遇到的坑</h2><h3 id="注意CUDA、GCC版本"><a href="#注意CUDA、GCC版本" class="headerlink" title="注意CUDA、GCC版本"></a>注意CUDA、GCC版本</h3><p>在安装之前检查好各个模块版本对应关系，具体表格在参考教程里有。博主第一次安装的时候使用的是Ubuntu 14.04系统，在安装好CUDA等驱动程序后才发现GCC版本&lt;4.9，未达到maskrcnn-benchmark的要求，最后调试很多次后放弃重装系统了=。=</p>
+<p>附一篇<a href="https://blog.csdn.net/CAU_Ayao/article/details/83987120" target="_blank" rel="noopener">gcc降级教程</a></p>
+<h3 id="Anaconda权限问题"><a href="#Anaconda权限问题" class="headerlink" title="Anaconda权限问题"></a>Anaconda权限问题</h3><p>安装Anaconda时如没有特殊需要务必不要使用root权限安装，博主使用root权限安装后遇到了环境变量出错找不到指令，权限不够等问题，最后通过以正常使用用户权限安装Anaconda解决了</p>
+<h3 id="OpenCV安装问题"><a href="#OpenCV安装问题" class="headerlink" title="OpenCV安装问题"></a>OpenCV安装问题</h3><p>安装OpenCV后遇到了import cv2失效问题，后根据<a href="https://blog.csdn.net/mango_haoming/article/details/84257401" target="_blank" rel="noopener">安装maskrcnn-benchmark记录</a>这篇博客中的方法解决了这个问题。</p>
+<h1 id="使用自己标注的训练集进行训练及测试"><a href="#使用自己标注的训练集进行训练及测试" class="headerlink" title="使用自己标注的训练集进行训练及测试"></a>使用自己标注的训练集进行训练及测试</h1>
     </article>
     <!-- license  -->
     
@@ -537,7 +544,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">1.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装教程"><span class="toc-number">1.2.</span> <span class="toc-text">安装教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装时遇到的坑"><span class="toc-number">1.3.</span> <span class="toc-text">安装时遇到的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意CUDA、GCC版本"><span class="toc-number">1.3.1.</span> <span class="toc-text">注意CUDA、GCC版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anaconda权限问题"><span class="toc-number">1.3.2.</span> <span class="toc-text">Anaconda权限问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenCV安装问题"><span class="toc-number">1.3.3.</span> <span class="toc-text">OpenCV安装问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用自己标注的训练集进行训练及测试"><span class="toc-number">2.</span> <span class="toc-text">使用自己标注的训练集进行训练及测试</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -579,7 +586,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href="/2019/03/04/HelloWorld/">HelloWorld!</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href="/2019/03/04/maskrcnn-records/">Mask-RCNN Benchmark填坑记录</a>
         </li>
     
     </ul></div>
