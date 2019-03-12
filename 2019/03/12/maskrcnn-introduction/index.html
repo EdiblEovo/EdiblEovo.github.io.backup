@@ -396,7 +396,7 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h1 id="Things-need-to-know"><a href="#Things-need-to-know" class="headerlink" title="Things need to know"></a>Things need to know</h1><ul>
-<li><strong>First, don’t forget to enter the environment by <code>conda activate maskrcnn\benchmark\zck</code> before doing anything. </strong></li>
+<li><strong>First, don’t forget to enter the environment by <code>conda activate maskrcnn_benchmark_zck</code> before doing anything. </strong></li>
 </ul>
 <hr>
 <ul>
@@ -411,7 +411,7 @@ height:50vh;
 <li>You can change the basic parameters in defaults.py(maskrcnn_benchmark/config/defaults.py), and some specific parameters in model configuration file(eg. configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml)</li>
 </ul>
 <hr>
-<h1 id="Useful-Tutorials-but-in-Chinese-P"><a href="#Useful-Tutorials-but-in-Chinese-P" class="headerlink" title="Useful Tutorials (but in Chinese :P)"></a>Useful Tutorials (but in Chinese :P)</h1><p><a href="https://blog.csdn.net/ChuiGeDaQiQiu/article/details/83868512" target="_blank" rel="noopener">Tutorial1</a><br><a href="https://blog.csdn.net/x572722344/article/details/84934188" target="_blank" rel="noopener">Tutorial2</a><br>These two tutorials is readable after Chrome’s translation. Things in the server are basically the same as these two tutorials. You can skip the installation part as it’s already completed, and start reading the parts about training.</p>
+<h1 id="Useful-Tutorials-but-in-Chinese-P"><a href="#Useful-Tutorials-but-in-Chinese-P" class="headerlink" title="Useful Tutorials (but in Chinese :P)"></a>Useful Tutorials (but in Chinese :P)</h1><p><a href="https://blog.csdn.net/ChuiGeDaQiQiu/article/details/83868512" target="_blank" rel="noopener">Tutorial1</a><br><a href="https://blog.csdn.net/x572722344/article/details/84934188" target="_blank" rel="noopener">Tutorial2</a><br>These two tutorials is readable after using Chrome’s translation. Things installed in the server are basically the same as these two tutorials. You can skip the installation part as it’s already completed, and start reading the parts about training.</p>
 <h1 id="Basic-Code"><a href="#Basic-Code" class="headerlink" title="Basic Code"></a>Basic Code</h1><h2 id="Run-the-model"><a href="#Run-the-model" class="headerlink" title="Run the model"></a>Run the model</h2><p><code>python tools/train_net.py --config-file &quot;configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml&quot;</code><br>This line of code means to start/continue training model using “configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml” as config file.</p>
 <h2 id="Testing-using-test-dataset"><a href="#Testing-using-test-dataset" class="headerlink" title="Testing using test dataset"></a>Testing using test dataset</h2><p><code>python tools/test_net.py --config-file &quot;configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml&quot;</code><br>Like above, this line of code means testing the model using the same config file.</p>
 <h2 id="Display-predictions"><a href="#Display-predictions" class="headerlink" title="Display predictions"></a>Display predictions</h2><p>Reading this <a href="https://github.com/facebookresearch/maskrcnn-benchmark/issues/327" target="_blank" rel="noopener">Issue</a> may help.</p>
