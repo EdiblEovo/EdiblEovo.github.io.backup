@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>[Oops] · EdiblE&#39;s Blog</title>
+    <title>SLAM学习笔记（数学基础篇） · EdiblE&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="four-zero-four-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -211,6 +211,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">EdiblE&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">SLAM学习笔记（数学基础篇）</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">EdiblE's Blog.</a>
 </header>
@@ -222,12 +231,14 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
     
     
-    <!-- about页 -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/IMG_1154.PNG)"></div>
@@ -236,18 +247,58 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            [Oops]
-            <!-- about -->
+            SLAM学习笔记（数学基础篇）
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-                404,Eaten;
+            
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="SLAM">SLAM</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">502</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/05</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -348,8 +399,113 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="三维空间刚体运动"><a href="#三维空间刚体运动" class="headerlink" title="三维空间刚体运动"></a>三维空间刚体运动</h2><ul>
+<li>外积 -&gt; 旋转</li>
+</ul>
+<hr>
+<ul>
+<li>欧氏变换 -&gt; 旋转矩阵 – 描述相机的旋转 -&gt; 旋转矩阵R + 平移向量t = 欧氏空间坐标变换</li>
+</ul>
+<hr>
+<ul>
+<li>齐次坐标 – 用于简化变换的形式 – 末尾添加一维1 -&gt; 旋转矩阵R与平移向量t构成变换矩阵T(特殊欧氏群)</li>
+</ul>
+<hr>
+<ul>
+<li>旋转向量 -&gt; 紧凑描述旋转平移 – 使用罗德里格斯公式完成旋转矩阵\旋转向量的转换</li>
+</ul>
+<hr>
+<ul>
+<li>欧拉角 -&gt; 存在万向锁问题</li>
+</ul>
+<hr>
+<ul>
+<li>四元数 -&gt; 紧凑、没有奇异性 – 单位四元数能表示三维空间任意旋转</li>
+</ul>
+<hr>
+<ul>
+<li>四元数、旋转向量、旋转矩阵的互相转换</li>
+</ul>
+<h2 id="李群与李代数"><a href="#李群与李代数" class="headerlink" title="李群与李代数"></a>李群与李代数</h2><ul>
+<li>群 -&gt; 一种集合加上一种运算 – 封闭性、结合律、幺元、逆 -&gt; 具有连续性质为李群 – SO(3),SE(3)</li>
+</ul>
+<hr>
+<ul>
+<li>李代数 -&gt; 描述了李群的局部性质 -&gt; 一个集合V、一个数域F、一个二元运算[,]组成 -&gt; 封闭性、双线性、自反性、雅可比等价</li>
+<li>SO(3) -&gt; so(3) – SE(3) -&gt; se(3)</li>
+<li>李代数可用于表达旋转矩阵的导数 – 指数映射 -&gt; 罗德里格斯公式</li>
+</ul>
+<hr>
+<ul>
+<li>李代数求导 -&gt; BCH公式 – 左乘/右乘模型</li>
+<li>1.李代数求导模型 – 2.扰动模型</li>
+</ul>
+<h2 id="相机与图像"><a href="#相机与图像" class="headerlink" title="相机与图像"></a>相机与图像</h2><ul>
+<li>像素坐标系 -&gt; 内参数矩阵 -&gt; 外参 -&gt; 归一化处理得到归一化坐标（位于归一化平面上）</li>
+</ul>
+<hr>
+<ul>
+<li>畸变 -&gt; 径向、切向</li>
+</ul>
+<hr>
+<ul>
+<li>双目模型 -&gt; 视差</li>
+</ul>
+<h2 id="非线性优化"><a href="#非线性优化" class="headerlink" title="非线性优化"></a>非线性优化</h2><ul>
+<li>贝叶斯法则 -&gt; 最大似然 – 什么样的状态下最可能产生现在观测到的数据</li>
+</ul>
+<hr>
+<ul>
+<li>高斯分布的最大似然 – 最小化负对数 – 求误差平方和 -&gt; 最小二乘问题</li>
+</ul>
+<hr>
+<ul>
+<li>非线性最小二乘 – 迭代更新优化变量使目标函数下降 -&gt; 确定增量</li>
+</ul>
+<hr>
+<ul>
+<li>一阶/二阶梯度法(牛顿法) -&gt; 高斯牛顿法、列文伯格-马夸尔特法</li>
+</ul>
 
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/03/12/maskrcnn-introduction/" title="Mask-RCNN Simple Tutorial">
+                    <div class="nextTitle">Mask-RCNN Simple Tutorial</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/03/04/maskrcnn-records/" title="Mask-RCNN Benchmark填坑记录">
+                    <div class="prevTitle">Mask-RCNN Benchmark填坑记录</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
             <!-- profile -->
             
         </div>
@@ -430,6 +586,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#三维空间刚体运动"><span class="toc-number">1.</span> <span class="toc-text">三维空间刚体运动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#李群与李代数"><span class="toc-number">2.</span> <span class="toc-text">李群与李代数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相机与图像"><span class="toc-number">3.</span> <span class="toc-text">相机与图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非线性优化"><span class="toc-number">4.</span> <span class="toc-text">非线性优化</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -587,6 +761,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
