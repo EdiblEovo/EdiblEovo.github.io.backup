@@ -348,12 +348,11 @@
     <article class="index-post">
         <a class="abstract-title" href="/2019/03/16/pytorch-tensorboardX/">
             
-                <span>pytorch结合tensorboardX的学习笔记（于Mask RCNN Benchmark环境中的应用）</span>
+                <span>Mask RCNN Benchmark学习笔记</span>
         </a>
         <div class="abstract-content">
-            本文为基于PR163的学习笔记
-参数配置在原有config/defaults.py中加入tensorboard环境位置配置信息
-_C.TENSORBOARD_EXPERIMENT = &quot;logs/maskrcnn-benchmark&quot;  # tensorboard experiment location将MatricLogger改为TensorboardLogger123456789101112131415161718192021222324252627282930313233343536class TensorboardLogger(MetricLogger):  ...
+            Finetune参考Issue15Issue521Issue372CSDNblog1
+去掉最后一层script12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455import osimport torchimport argparsefrom maskrcnn_benchmark.config import cfgfrom maskrcnn_benchmark.utils.c2_model_loading import load_c2_fo...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -365,6 +364,8 @@ _C.TENSORBOARD_EXPERIMENT = &quot;logs/maskrcnn-benchmark&quot;  # tensorboard e
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="pytorch">pytorch</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Mask-RCNN">Mask-RCNN</a>
     
 </div>
             
@@ -599,7 +600,7 @@ Everything about maskrcnn is in /home/zhangchengkai/maskrcnn_benchmark/maskrcnn-
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/16</span><a class="archive-post-title" href="/2019/03/16/pytorch-tensorboardX/">pytorch结合tensorboardX的学习笔记（于Mask RCNN Benchmark环境中的应用）</a>
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href="/2019/03/16/pytorch-tensorboardX/">Mask RCNN Benchmark学习笔记</a>
         </li>
     
     
@@ -625,6 +626,8 @@ Everything about maskrcnn is in /home/zhangchengkai/maskrcnn_benchmark/maskrcnn-
         <span class="sidebar-tag-name" data-tags="SLAM"><span class="iconfont-archer">&#xe606;</span>SLAM</span>
     
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="Mask-RCNN"><span class="iconfont-archer">&#xe606;</span>Mask-RCNN</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
