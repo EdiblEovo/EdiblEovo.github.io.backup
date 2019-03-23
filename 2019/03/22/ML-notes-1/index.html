@@ -405,7 +405,7 @@ height:50vh;
 <li>输入：feature map</li>
 <li>输出：一系列的矩形候选框(object proposals)</li>
 </ul>
-<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="RPN_Structure.PNG" alt="RPN_Structure"><br>e.g: conv feature map(13*13*256) -&gt; sliding window(3*3) -&gt; 卷积(3*3*256*256)<br>-> 256-d向量 -&gt; 卷积(1*1*256*2k(cls) or 1*1*256*4k(reg)) -&gt; cls layer / reg layer输出</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="RPN_Structure.png" alt="RPN_Structure"><br>e.g: conv feature map(13*13*256) -&gt; sliding window(3*3) -&gt; 卷积(3*3*256*256)<br>-> 256-d向量 -&gt; 卷积(1*1*256*2k(cls) or 1*1*256*4k(reg)) -&gt; cls layer / reg layer输出</p>
 <h2 id="Anchors"><a href="#Anchors" class="headerlink" title="Anchors"></a>Anchors</h2><p><img src="anchor.PNG" alt="Anchor"><br>在sliding window中，以中心像素为基点构造9种anchor映射到原来的图像中：三种面积 * 三种比例</p>
 <h2 id="训练-Faster-RCNN中"><a href="#训练-Faster-RCNN中" class="headerlink" title="训练(Faster-RCNN中)"></a>训练(Faster-RCNN中)</h2><h3 id="判定anchor内是否有目标的规则："><a href="#判定anchor内是否有目标的规则：" class="headerlink" title="判定anchor内是否有目标的规则："></a>判定anchor内是否有目标的规则：</h3><ol>
 <li>假如某anchor与任一目标区域的IoU最大，则该anchor判定为有目标；</li>
@@ -670,9 +670,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="学习笔记"><span class="iconfont-archer">&#xe606;</span>学习笔记</span>
-    
         <span class="sidebar-tag-name" data-tags="SLAM"><span class="iconfont-archer">&#xe606;</span>SLAM</span>
+    
+        <span class="sidebar-tag-name" data-tags="学习笔记"><span class="iconfont-archer">&#xe606;</span>学习笔记</span>
     
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
