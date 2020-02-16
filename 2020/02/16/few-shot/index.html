@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>EdiblE&#39;s Blog</title>
+    <title>小样本学习笔记 · EdiblE&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">EdiblE&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">小样本学习笔记</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">EdiblE's Blog.</a>
 </header>
@@ -220,24 +231,78 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/IMG_1154.PNG)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            小样本学习笔记
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Few-shot">Few-shot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="小样本">小样本</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/02/16</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,107 +403,122 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/22/ML-notes-1/">
-            
-                <span>机器学习学习笔记（一）</span>
-        </a>
-        <div class="abstract-content">
-            RPN,Faster-RCNN,FPN,Mask-RCNN网络结构分析
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Mask-RCNN">Mask-RCNN</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="什么是小样本学习"><a href="#什么是小样本学习" class="headerlink" title="什么是小样本学习"></a>什么是小样本学习</h2><p>包括One-shot Learning 、Zero-shot Learning、Few-shot Learning。本文主要针对one-shot/few-shot</p>
+<p>Zero-shot： 训练样本里没有这个类别的样本，但是如果我们可以学到一个牛逼的映射，这个映射好到我们即使在训练的时候没看到这个类，但是我们在遇到的时候依然能通过这个映射得到这个新类的特征。也即：训练集中没有出现过的类别，能自动创造出相应的映射。</p>
+<p>One-shot/Few-shot：类别下训练样本只有一个或者很少，我们依然可以进行分类。比如我们可以在一个更大的数据集上或者利用knowledge graph、domain-knowledge 等方法，学到一个一般化的映射，也就是学习一个映射，然后再到小数据集上进行更新升级映射。</p>
+<p><img src="progress.png" alt="progress"></p>
+<p><img src="text-progress.jpg" alt="text-progress"></p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h4><p>学习数据增强的方式，通过少量可用的样本生成更多的样本</p>
+<h4 id="元学习-Meta-Learning-主要关注"><a href="#元学习-Meta-Learning-主要关注" class="headerlink" title="元学习 (Meta Learning) (主要关注)"></a>元学习 (Meta Learning) (主要关注)</h4><p>利用大量跟目标任务相似的任务（或者历史任务）来学习一个元学习器 (meta-learner)，然后作用到目标任务上获得一个不错的模型初值，从而能够仅利用少量目标任务的数据对模型进行快速适配。</p>
+<ul>
+<li>度量学习 (Metric Learning)</li>
+</ul>
+<p>度量学习的大致想法是学习一个强大的、具有良好迁移能力的特征提取器 (feature extractor) 来直接应用到目标任务上。这样，通过一个少参或者无参的分类器（比如nearest neighbour）就可以做小样本分类任务了。</p>
+<p>核心思想：学习一个 embedding 函数，将输入空间（例如图片）映射到一个新的嵌入空间，在嵌入空间中有一个相似性度量来区分不同类。我们的先验知识就是这个 embedding 函数，在遇到新的 task 的时候，只将需要分类的样本点用这个 embedding 函数映射到嵌入空间里面，使用相似性度量比较进行分类。</p>
+<h4 id="基于语义的方法-TODO"><a href="#基于语义的方法-TODO" class="headerlink" title="基于语义的方法 (TODO)"></a>基于语义的方法 (TODO)</h4><p>这类方法受到了零样本学习（zero-shot learning）的启发，其中分类任务的完成仅仅基于类别的名称、文本描述或属性。当视觉信息稀缺时，这些额外的语义信息也可能很有用。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://zhuanlan.zhihu.com/p/85277741" target="_blank" rel="noopener">[小样本学习总结]</a><br><a href="https://blog.csdn.net/xhw205/article/details/79491649" target="_blank" rel="noopener">[few-shot learning是什么]</a><br><a href="https://www.jiqizhixin.com/articles/2017-07-20-4" target="_blank" rel="noopener">[与模型无关的元学习，UC Berkeley提出一种可推广到各类任务的元学习方法]</a><br><a href="https://zhuanlan.zhihu.com/p/99116121" target="_blank" rel="noopener">[2019 回顾与 2020 展望：小样本学习]</a><br><a href="https://blog.csdn.net/weixin_37589575/article/details/92801610" target="_blank" rel="noopener">[Few-shot learning（少样本学习）和 Meta-learning（元学习）概述]</a><br><a href="https://zhuanlan.zhihu.com/p/75263636" target="_blank" rel="noopener">[从 CVPR 2019 一览小样本学习研究进展]</a></p>
+<h2 id="论文笔记"><a href="#论文笔记" class="headerlink" title="论文笔记"></a>论文笔记</h2><h2 id="Dynamic-Few-Shot-Visual-Learning-without-Forgetting-主要方法-度量学习"><a href="#Dynamic-Few-Shot-Visual-Learning-without-Forgetting-主要方法-度量学习" class="headerlink" title="Dynamic Few-Shot Visual Learning without Forgetting (主要方法:度量学习)"></a>Dynamic Few-Shot Visual Learning without Forgetting (主要方法:度量学习)</h2><p><a href="https://arxiv.org/pdf/1804.09458.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1804.09458.pdf</a></p>
+<h3 id="ConvNet-based-recognition-model"><a href="#ConvNet-based-recognition-model" class="headerlink" title="ConvNet-based recognition model"></a>ConvNet-based recognition model</h3><p>一个特征提取器 + 分类器组成的模型。<br>特征提取机：从输入图片中提取出$d$维的特征向量$z$<br>分类器：输入$z$，输出$K^{*}$维向量，向量内容为关于$K^{*}$类中各类的分类概率分$p$。</p>
+<p>创新点：使用基于余弦相似度的计算原始分类分数（效果：在计算概率输出时base与novel的分类分数不会出现量级差距）。</p>
+<h3 id="Few-shot-classification-weight-generator"><a href="#Few-shot-classification-weight-generator" class="headerlink" title="Few-shot classification weight generator"></a>Few-shot classification weight generator</h3><p>使用meta-learning中度量学习方法，输入novel类中训练图片的特征向量$Z$，与base类的分类权重向量$W_{base}$，通过这两个输出，得到一个对于novel类的分类权重向量$w^{\prime}$。</p>
+<p>使用的方法：1、平均权重向量与一个可学习的权重向量相乘得到$w^{\prime}_{avg}$；2、通过base类的权重引入注意力机制（一个cosine similarity function跟一个softmax），得到对应于base类权重的注意力分类向量$w^{\prime}_{att}$，乘上另一个可学习的权重向量。最后$w^{\prime}_{avg}+w^{\prime}_{att}$得到最终的分类向量$w^{\prime}$。</p>
+<h3 id="训练方法"><a href="#训练方法" class="headerlink" title="训练方法"></a>训练方法</h3><p>分两步训练，先训练recognition model，之后固定model中特征提取器的权重，继续训练分类器和weight generator。<br>因此，并不是端到端的，两个步骤需要先后进行。</p>
+<!--
+## Few-Shot Object Detection with Attention-RPN and Multi-Relation Detector
+
+<https://arxiv.org/pdf/1908.01998v1.pdf>
+
+### Attention-Based Region Proposal Network
+
+目标：减少在没有support信息下RPN生成的过多的proposals数量。
+方法：用support的特征为卷积核作用于query的特征图上，从而达到“在query上得到support的注意力”的效果。
+具体：将support特征平均池化至$1*1*C$，之后与$H*W*C$的query特征做depth-wise互相关（和卷积一样的操作，但是不对核进行翻转）
+
+### Multi-Relation Detector
+
+分3个注意力模块：1.**patch-relation head**；2.**global-relation head**；3.**local-correlation head**。
+
+1将support与query特征连接后通过池化-3层卷积-池化后经过FC层得到分数。
+2连接后通过池化得到$1*1*2C$的特征向量，通过两个fc层构成的MLP后经过最后的一个fc层得到分数。
+3类似于attention RPN，将support，query特征分别通过一个1x1的权值共享卷积核，得到结果之后用于计算depth-wise相似度特征，最后通过fc层得到分数。
+
+三个模块分别使用不同方法处理特征图，各自得到一个分数，相加得到最后分数。仅使用1来生成预测框。
+
+### 训练方法
+
+使用Multi-way Training with Ranking Proposal来提高multy-way下的训练效果。
+
+Single-way：每次训练使用$(q_k,s_k)$一组数据，q为query，s为support，query图片中仅标记k-th类的物体为前景，其他的均为背景。
+Multi-way：较Single-way多使用一张$s_m$数据，其中包含另一类物体m，这样模型不仅需要区别前景与背景，还需要区别不同类的物体。但是这样会造成前景、背景的候选框数据不平衡从而导致匹配能力变差。因此引入ranking proposal方法，先计算所有前景候选框（共N个）的前景loss，之后选出top 2N个$(q_k,s_k)$的候选框，top N个$(q_k,s_m)$的候选框来计算背景loss，之后相加得到最终的loss。
+
+## CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning (方法:度量学习)
+
+<https://arxiv.org/pdf/1903.02351.pdf>
+
+### Dense Comparison Modeule
+
+两个子模块：特征提取器、特征对比器
+提取器：使用R-50，使用block2，block3的结果用于特征对比，丢弃block3后的结构。使用空洞卷积来保存特征的空间分辨率（？），support与query使用同一个特征提取器，训练的时候不改变R-50的权重（即仅做标准特征提取用）。
+稠密对比：对support中得到的特征图中前景部分使用global average pooling提取出特征向量（背景部分=0），之后上采样该特征向量至query特征图大小后对二者做concat操作。
+
+### Iterative Optimization Module
+
+将上一次迭代生成的mask$y_(t-1)$和原始特征$x$做concat操作后作为该次迭代的输入。（mask指的是softmax后得到的confidence map，不是传统意义上的0和1那种mask）训练时为了避免过拟合，使用空mask（填满一个概率值$p_r$）作为mask输入。
+
+### Attention Mechanism
+
+为了提高k-shot分割效果，在DCM中加入注意力机制，由两个卷积block构成（256 3x3+3x3maxpool，3x3卷积+GAP）最后通过softmax得到每个support example的权重分数，各自与对应的权重分数相乘后相加得到最终结果——不同support sample加权的特征和。（疑问：query sample呢？）
+-->
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/16/maskrcnn-records-2/">
-            
-                <span>Mask RCNN Benchmark学习笔记（二）</span>
-        </a>
-        <div class="abstract-content">
-            MaskRCNN Benchmark的Finetuning和可视化
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Mask-RCNN">Mask-RCNN</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="pytorch">pytorch</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/04/maskrcnn-records-1/">
-            
-                <span>Mask-RCNN Benchmark学习笔记（一）</span>
-        </a>
-        <div class="abstract-content">
-            Mask-RCNN Benchmark的安装使用及数据集的标注
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Mask-RCNN">Mask-RCNN</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="pytorch">pytorch</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/03/22/ML-notes-1/" title="机器学习学习笔记（一）">
+                    <div class="prevTitle">机器学习学习笔记（一）</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "6CMLEPr4VVMdICb1i0PM2wq3-gzGzoHsz",
+        appKey: "5qFctCADfUuK6CsxQJC37xUs",
+        placeholder: "It was at this moment, He knew...",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -520,6 +600,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是小样本学习"><span class="toc-number">1.</span> <span class="toc-text">什么是小样本学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">1.1.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据增强"><span class="toc-number">1.1.1.</span> <span class="toc-text">数据增强</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元学习-Meta-Learning-主要关注"><span class="toc-number">1.1.2.</span> <span class="toc-text">元学习 (Meta Learning) (主要关注)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基于语义的方法-TODO"><span class="toc-number">1.1.3.</span> <span class="toc-text">基于语义的方法 (TODO)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">1.2.</span> <span class="toc-text">参考资料</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#论文笔记"><span class="toc-number">2.</span> <span class="toc-text">论文笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dynamic-Few-Shot-Visual-Learning-without-Forgetting-主要方法-度量学习"><span class="toc-number">3.</span> <span class="toc-text">Dynamic Few-Shot Visual Learning without Forgetting (主要方法:度量学习)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ConvNet-based-recognition-model"><span class="toc-number">3.1.</span> <span class="toc-text">ConvNet-based recognition model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Few-shot-classification-weight-generator"><span class="toc-number">3.2.</span> <span class="toc-text">Few-shot classification weight generator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练方法"><span class="toc-number">3.3.</span> <span class="toc-text">训练方法</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -726,6 +824,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({

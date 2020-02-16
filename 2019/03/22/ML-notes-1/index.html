@@ -431,8 +431,8 @@ height:50vh;
 </ul>
 <hr>
 <p>ResNet示例图<br><img src="FPN_1.jpg" alt="FPN_1"></p>
-<h3 id="自底而上的路径"><a href="#自底而上的路径" class="headerlink" title="自底而上的路径"></a>自底而上的路径</h3><p>自下而上的路径是卷积网络的前馈计算，该算法计算由不同比例的特征映射组成的特征层级，其缩放步长为2。通常有许多层产生相同大小的输出映射，并且我们说这些层 处于相同的网络阶段。 对于我们的特征图金字塔，为每个阶段定义一个金字塔等级， 然后选择每个阶段的最后一层的输出作为我们特征图的参考集。 这种选择是自然的，因为每个阶段的最深层应具有最强的特征。<br>具体而言，对于ResNets，我们使用每个阶段的最后一个residual block输出的特征激活输出。 对于conv2，conv3，conv4和conv5输出，我们将这些最后residual block的输出表示为{C2，C3，C4，C5}，并且它们相对于输入图像具有{4, 8, 16, 32} 的步长。 由于其庞大的内存占用，我们不会将conv1纳入金字塔中。</p>
-<h3 id="自顶向下的路径"><a href="#自顶向下的路径" class="headerlink" title="自顶向下的路径"></a>自顶向下的路径</h3><p>自顶向下的路径通过对在空间上更抽象但语义更强高层特征图进行上采样来幻化高分辨率的特征。随后通过侧向连接从底向上的路径，使得高层特征得到增强。每个横向连接自底向上路径和自顶向下路径的特征图具有相同的尺寸。将低分辨率的特征图做2倍上采样（为了简单起见，使用最近邻上采样）。然后通过按元素相加，将上采样映射与相应的自底而上映射合并。这个过程是迭代的，直到生成最终的分辨率图。<br>为了开始迭代，我们只需在C5上附加一个1×1卷积层来生成低分辨率图P5。最后，我们在每个合并的图上附加一个3×3卷积来生成最终的特征映射，这是为了减少上采样的混叠效应。这个最终的特征映射集称为{P2，P3，P4，P5}，分别对应于{C2，C3，C4，C5}，它们具有相同的尺寸。<br>由于金字塔的所有层次都像传统的特征化图像金字塔一样使用共享分类器/回归器，因此我们在所有特征图中固定特征维度（通道数，记为d）。我们在本文中设置d = 256，因此所有额外的卷积层都有256个通道的输出。</p>
+<h3 id="自底而上的路径"><a href="#自底而上的路径" class="headerlink" title="自底而上的路径"></a>自底而上的路径</h3><p>自下而上的路径是卷积网络的前馈计算，该算法计算由不同比例的特征映射组成的特征层级，其缩放步长为2。通常有许多层产生相同大小的输出映射，并且我们说这些层 处于相同的网络阶段。 对于我们的特征图金字塔，为每个阶段定义一个金字塔等级， 然后选择每个阶段的最后一层的输出作为我们特征图的参考集。 这种选择是自然的，因为每个阶段的最深层应具有最强的特征。<br>具体而言，对于ResNets，我们使用每个阶段的最后一个residual block输出的特征激活输出。 对于conv2，conv3，conv4和conv5输出，我们将这些最后residual block的输出表示为\{C2，C3，C4，C5\}，并且它们相对于输入图像具有\{4, 8, 16, 32\} 的步长。 由于其庞大的内存占用，我们不会将conv1纳入金字塔中。</p>
+<h3 id="自顶向下的路径"><a href="#自顶向下的路径" class="headerlink" title="自顶向下的路径"></a>自顶向下的路径</h3><p>自顶向下的路径通过对在空间上更抽象但语义更强高层特征图进行上采样来幻化高分辨率的特征。随后通过侧向连接从底向上的路径，使得高层特征得到增强。每个横向连接自底向上路径和自顶向下路径的特征图具有相同的尺寸。将低分辨率的特征图做2倍上采样（为了简单起见，使用最近邻上采样）。然后通过按元素相加，将上采样映射与相应的自底而上映射合并。这个过程是迭代的，直到生成最终的分辨率图。<br>为了开始迭代，我们只需在C5上附加一个1×1卷积层来生成低分辨率图P5。最后，我们在每个合并的图上附加一个3×3卷积来生成最终的特征映射，这是为了减少上采样的混叠效应。这个最终的特征映射集称为\{P2，P3，P4，P5\}，分别对应于\{C2，C3，C4，C5\}，它们具有相同的尺寸。<br>由于金字塔的所有层次都像传统的特征化图像金字塔一样使用共享分类器/回归器，因此我们在所有特征图中固定特征维度（通道数，记为d）。我们在本文中设置d = 256，因此所有额外的卷积层都有256个通道的输出。</p>
 <h3 id="中间连接"><a href="#中间连接" class="headerlink" title="中间连接"></a>中间连接</h3><p>采用1×1的卷积核进行连接（减少特征图数量）。</p>
 <p>（以上结构知识摘自参考资料[5]）</p>
 <h1 id="Mask-R-CNN"><a href="#Mask-R-CNN" class="headerlink" title="Mask R-CNN"></a>Mask R-CNN</h1><h2 id="网络结构-1"><a href="#网络结构-1" class="headerlink" title="网络结构"></a>网络结构</h2><p><img src="MRCNN_Structure.PNG" alt="MRCNN_Structure"><br><img src="MRCNN_Structure1.png" alt="MRCNN_Structure1"><br><img src="MRCNN_HeadStructure.PNG" alt="MRCNN_HeadStructure"></p>
@@ -450,8 +450,8 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2019/10/16/summary/" title="Few shot阅读笔记">
-                    <div class="nextTitle">Few shot阅读笔记</div>
+                <a href="/2020/02/16/few-shot/" title="小样本学习笔记">
+                    <div class="nextTitle">小样本学习笔记</div>
                 </a>
             
         </li>
@@ -662,32 +662,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 7
+        Total : 6
         </div>
         <!-- search  -->
         
@@ -698,18 +675,22 @@ top:50vh;
     
     
     
-    <div class="archive-year"> 2019 </div>
+    <div class="archive-year"> 2020 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/16</span><a class="archive-post-title" href="/2019/10/16/summary/">Few shot阅读笔记</a>
+            <span class="archive-post-date">02/16</span><a class="archive-post-title" href="/2020/02/16/few-shot/">小样本学习笔记</a>
         </li>
     
     
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/16</span><a class="archive-post-title" href="/2019/10/16/oneShotQnA/">OneShot学习Q&A</a>
-        </li>
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -741,15 +722,17 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="SLAM"><span class="iconfont-archer">&#xe606;</span>SLAM</span>
-    
         <span class="sidebar-tag-name" data-tags="学习笔记"><span class="iconfont-archer">&#xe606;</span>学习笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="Mask-RCNN"><span class="iconfont-archer">&#xe606;</span>Mask-RCNN</span>
     
+        <span class="sidebar-tag-name" data-tags="SLAM"><span class="iconfont-archer">&#xe606;</span>SLAM</span>
+    
         <span class="sidebar-tag-name" data-tags="Few-shot"><span class="iconfont-archer">&#xe606;</span>Few-shot</span>
+    
+        <span class="sidebar-tag-name" data-tags="小样本"><span class="iconfont-archer">&#xe606;</span>小样本</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -819,7 +802,22 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
 
 

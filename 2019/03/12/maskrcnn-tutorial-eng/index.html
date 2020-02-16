@@ -395,23 +395,11 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="Things-need-to-know"><a href="#Things-need-to-know" class="headerlink" title="Things need to know"></a>Things need to know</h1><ul>
-<li><strong>First, don’t forget to enter the environment by <code>conda activate maskrcnn_benchmark_zck</code> before doing anything. </strong></li>
-</ul>
-<hr>
-<ul>
+        <h1 id="Things-need-to-know"><a href="#Things-need-to-know" class="headerlink" title="Things need to know"></a>Things need to know</h1><h2 id="First-don’t-forget-to-enter-the-environment-by-conda-activate-maskrcnn-benchmark-zck-before-doing-anything"><a href="#First-don’t-forget-to-enter-the-environment-by-conda-activate-maskrcnn-benchmark-zck-before-doing-anything" class="headerlink" title="- First, don’t forget to enter the environment by conda activate maskrcnn_benchmark_zck before doing anything. "></a>- <strong>First, don’t forget to enter the environment by <code>conda activate maskrcnn_benchmark_zck</code> before doing anything. </strong></h2><ul>
 <li>Everything about maskrcnn is in /home/zhangchengkai/maskrcnn_benchmark/maskrcnn-benchmark, so you need<br><code>cd /home/zhangchengkai/maskrcnn_benchmark/maskrcnn-benchmark</code> to enter the working diretory.</li>
 </ul>
 <hr>
-<ul>
-<li>The dataset is ready to use in “dataset/coco”. </li>
-</ul>
-<hr>
-<ul>
-<li>You can change the basic parameters in defaults.py(maskrcnn_benchmark/config/defaults.py), and some specific parameters in model configuration file(eg. configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml)</li>
-</ul>
-<hr>
-<h1 id="Useful-Tutorials-but-in-Chinese-P"><a href="#Useful-Tutorials-but-in-Chinese-P" class="headerlink" title="Useful Tutorials (but in Chinese :P)"></a>Useful Tutorials (but in Chinese :P)</h1><p><a href="https://blog.csdn.net/ChuiGeDaQiQiu/article/details/83868512" target="_blank" rel="noopener">Tutorial1</a><br><a href="https://blog.csdn.net/x572722344/article/details/84934188" target="_blank" rel="noopener">Tutorial2</a><br>These two tutorials are readable after using Chrome’s translation. Things installed in the server are basically the same as these two tutorials. You can skip the installation part as it’s already completed, and start reading the parts about training.</p>
+<h2 id="The-dataset-is-ready-to-use-in-“dataset-coco”"><a href="#The-dataset-is-ready-to-use-in-“dataset-coco”" class="headerlink" title="- The dataset is ready to use in “dataset/coco”. "></a>- The dataset is ready to use in “dataset/coco”. </h2><h2 id="You-can-change-the-basic-parameters-in-defaults-py-maskrcnn-benchmark-config-defaults-py-and-some-specific-parameters-in-model-configuration-file-eg-configs-e2e-mask-rcnn-R-101-FPN-1x-cigar-yaml"><a href="#You-can-change-the-basic-parameters-in-defaults-py-maskrcnn-benchmark-config-defaults-py-and-some-specific-parameters-in-model-configuration-file-eg-configs-e2e-mask-rcnn-R-101-FPN-1x-cigar-yaml" class="headerlink" title="- You can change the basic parameters in defaults.py(maskrcnn_benchmark/config/defaults.py), and some specific parameters in model configuration file(eg. configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml)"></a>- You can change the basic parameters in defaults.py(maskrcnn_benchmark/config/defaults.py), and some specific parameters in model configuration file(eg. configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml)</h2><h1 id="Useful-Tutorials-but-in-Chinese-P"><a href="#Useful-Tutorials-but-in-Chinese-P" class="headerlink" title="Useful Tutorials (but in Chinese :P)"></a>Useful Tutorials (but in Chinese :P)</h1><p><a href="https://blog.csdn.net/ChuiGeDaQiQiu/article/details/83868512" target="_blank" rel="noopener">Tutorial1</a><br><a href="https://blog.csdn.net/x572722344/article/details/84934188" target="_blank" rel="noopener">Tutorial2</a><br>These two tutorials are readable after using Chrome’s translation. Things installed in the server are basically the same as these two tutorials. You can skip the installation part as it’s already completed, and start reading the parts about training.</p>
 <h1 id="Basic-Code"><a href="#Basic-Code" class="headerlink" title="Basic Code"></a>Basic Code</h1><h2 id="Run-the-model"><a href="#Run-the-model" class="headerlink" title="Run the model"></a>Run the model</h2><p><code>python tools/train_net.py --config-file &quot;configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml&quot;</code><br>This line of code means to start/continue training model using “configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml” as config file.</p>
 <h2 id="Testing-using-test-dataset"><a href="#Testing-using-test-dataset" class="headerlink" title="Testing using test dataset"></a>Testing using test dataset</h2><p><code>python tools/test_net.py --config-file &quot;configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml&quot;</code><br>Like above, this line of code means testing the model using the same config file.</p>
 <h2 id="Display-predictions"><a href="#Display-predictions" class="headerlink" title="Display predictions"></a>Display predictions</h2><p>Reading this <a href="https://github.com/facebookresearch/maskrcnn-benchmark/issues/327" target="_blank" rel="noopener">Issue</a> may help.</p>
@@ -565,7 +553,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Things-need-to-know"><span class="toc-number">1.</span> <span class="toc-text">Things need to know</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Useful-Tutorials-but-in-Chinese-P"><span class="toc-number">2.</span> <span class="toc-text">Useful Tutorials (but in Chinese :P)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Basic-Code"><span class="toc-number">3.</span> <span class="toc-text">Basic Code</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-the-model"><span class="toc-number">3.1.</span> <span class="toc-text">Run the model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing-using-test-dataset"><span class="toc-number">3.2.</span> <span class="toc-text">Testing using test dataset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Display-predictions"><span class="toc-number">3.3.</span> <span class="toc-text">Display predictions</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Things-need-to-know"><span class="toc-number">1.</span> <span class="toc-text">Things need to know</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#First-don’t-forget-to-enter-the-environment-by-conda-activate-maskrcnn-benchmark-zck-before-doing-anything"><span class="toc-number">1.1.</span> <span class="toc-text">- First, don’t forget to enter the environment by conda activate maskrcnn_benchmark_zck before doing anything. </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-dataset-is-ready-to-use-in-“dataset-coco”"><span class="toc-number">1.2.</span> <span class="toc-text">- The dataset is ready to use in “dataset/coco”. </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#You-can-change-the-basic-parameters-in-defaults-py-maskrcnn-benchmark-config-defaults-py-and-some-specific-parameters-in-model-configuration-file-eg-configs-e2e-mask-rcnn-R-101-FPN-1x-cigar-yaml"><span class="toc-number">1.3.</span> <span class="toc-text">- You can change the basic parameters in defaults.py(maskrcnn_benchmark/config/defaults.py), and some specific parameters in model configuration file(eg. configs/e2e_mask_rcnn_R_101_FPN_1x_cigar.yaml)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Useful-Tutorials-but-in-Chinese-P"><span class="toc-number">2.</span> <span class="toc-text">Useful Tutorials (but in Chinese :P)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Basic-Code"><span class="toc-number">3.</span> <span class="toc-text">Basic Code</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-the-model"><span class="toc-number">3.1.</span> <span class="toc-text">Run the model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing-using-test-dataset"><span class="toc-number">3.2.</span> <span class="toc-text">Testing using test dataset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Display-predictions"><span class="toc-number">3.3.</span> <span class="toc-text">Display predictions</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -636,32 +624,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 7
+        Total : 6
         </div>
         <!-- search  -->
         
@@ -672,18 +637,22 @@ top:50vh;
     
     
     
-    <div class="archive-year"> 2019 </div>
+    <div class="archive-year"> 2020 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/16</span><a class="archive-post-title" href="/2019/10/16/summary/">Few shot阅读笔记</a>
+            <span class="archive-post-date">02/16</span><a class="archive-post-title" href="/2020/02/16/few-shot/">小样本学习笔记</a>
         </li>
     
     
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/16</span><a class="archive-post-title" href="/2019/10/16/oneShotQnA/">OneShot学习Q&A</a>
-        </li>
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -715,15 +684,17 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="SLAM"><span class="iconfont-archer">&#xe606;</span>SLAM</span>
-    
         <span class="sidebar-tag-name" data-tags="学习笔记"><span class="iconfont-archer">&#xe606;</span>学习笔记</span>
-    
-        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
         <span class="sidebar-tag-name" data-tags="Mask-RCNN"><span class="iconfont-archer">&#xe606;</span>Mask-RCNN</span>
     
+        <span class="sidebar-tag-name" data-tags="SLAM"><span class="iconfont-archer">&#xe606;</span>SLAM</span>
+    
         <span class="sidebar-tag-name" data-tags="Few-shot"><span class="iconfont-archer">&#xe606;</span>Few-shot</span>
+    
+        <span class="sidebar-tag-name" data-tags="小样本"><span class="iconfont-archer">&#xe606;</span>小样本</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -793,7 +764,22 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
 
 
