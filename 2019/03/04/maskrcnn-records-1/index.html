@@ -697,13 +697,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Mask-RCNN"><span class="iconfont-archer">&#xe606;</span>Mask-RCNN</span>
     
-        <span class="sidebar-tag-name" data-tags="Few-shot"><span class="iconfont-archer">&#xe606;</span>Few-shot</span>
-    
-        <span class="sidebar-tag-name" data-tags="小样本"><span class="iconfont-archer">&#xe606;</span>小样本</span>
-    
         <span class="sidebar-tag-name" data-tags="SLAM"><span class="iconfont-archer">&#xe606;</span>SLAM</span>
     
         <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="Few-shot"><span class="iconfont-archer">&#xe606;</span>Few-shot</span>
+    
+        <span class="sidebar-tag-name" data-tags="小样本"><span class="iconfont-archer">&#xe606;</span>小样本</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -773,7 +773,22 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
 
 
