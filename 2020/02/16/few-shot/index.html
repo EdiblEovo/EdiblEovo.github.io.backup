@@ -425,52 +425,6 @@ height:50vh;
 <h3 id="Few-shot-classification-weight-generator"><a href="#Few-shot-classification-weight-generator" class="headerlink" title="Few-shot classification weight generator"></a>Few-shot classification weight generator</h3><p>使用meta-learning中度量学习方法，输入novel类中训练图片的特征向量$Z$，与base类的分类权重向量$W_{base}$，通过这两个输出，得到一个对于novel类的分类权重向量$w^{\prime}$。</p>
 <p>使用的方法：1、平均权重向量与一个可学习的权重向量相乘得到$w^{\prime}_{avg}$；2、通过base类的权重引入注意力机制（一个cosine similarity function跟一个softmax），得到对应于base类权重的注意力分类向量$w^{\prime}_{att}$，乘上另一个可学习的权重向量。最后$w^{\prime}_{avg}+w^{\prime}_{att}$得到最终的分类向量$w^{\prime}$。</p>
 <h3 id="训练方法"><a href="#训练方法" class="headerlink" title="训练方法"></a>训练方法</h3><p>分两步训练，先训练recognition model，之后固定model中特征提取器的权重，继续训练分类器和weight generator。<br>因此，并不是端到端的，两个步骤需要先后进行。</p>
-<!--
-## Few-Shot Object Detection with Attention-RPN and Multi-Relation Detector
-
-<https://arxiv.org/pdf/1908.01998v1.pdf>
-
-### Attention-Based Region Proposal Network
-
-目标：减少在没有support信息下RPN生成的过多的proposals数量。
-方法：用support的特征为卷积核作用于query的特征图上，从而达到“在query上得到support的注意力”的效果。
-具体：将support特征平均池化至$1*1*C$，之后与$H*W*C$的query特征做depth-wise互相关（和卷积一样的操作，但是不对核进行翻转）
-
-### Multi-Relation Detector
-
-分3个注意力模块：1.**patch-relation head**；2.**global-relation head**；3.**local-correlation head**。
-
-1将support与query特征连接后通过池化-3层卷积-池化后经过FC层得到分数。
-2连接后通过池化得到$1*1*2C$的特征向量，通过两个fc层构成的MLP后经过最后的一个fc层得到分数。
-3类似于attention RPN，将support，query特征分别通过一个1x1的权值共享卷积核，得到结果之后用于计算depth-wise相似度特征，最后通过fc层得到分数。
-
-三个模块分别使用不同方法处理特征图，各自得到一个分数，相加得到最后分数。仅使用1来生成预测框。
-
-### 训练方法
-
-使用Multi-way Training with Ranking Proposal来提高multy-way下的训练效果。
-
-Single-way：每次训练使用$(q_k,s_k)$一组数据，q为query，s为support，query图片中仅标记k-th类的物体为前景，其他的均为背景。
-Multi-way：较Single-way多使用一张$s_m$数据，其中包含另一类物体m，这样模型不仅需要区别前景与背景，还需要区别不同类的物体。但是这样会造成前景、背景的候选框数据不平衡从而导致匹配能力变差。因此引入ranking proposal方法，先计算所有前景候选框（共N个）的前景loss，之后选出top 2N个$(q_k,s_k)$的候选框，top N个$(q_k,s_m)$的候选框来计算背景loss，之后相加得到最终的loss。
-
-## CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning (方法:度量学习)
-
-<https://arxiv.org/pdf/1903.02351.pdf>
-
-### Dense Comparison Modeule
-
-两个子模块：特征提取器、特征对比器
-提取器：使用R-50，使用block2，block3的结果用于特征对比，丢弃block3后的结构。使用空洞卷积来保存特征的空间分辨率（？），support与query使用同一个特征提取器，训练的时候不改变R-50的权重（即仅做标准特征提取用）。
-稠密对比：对support中得到的特征图中前景部分使用global average pooling提取出特征向量（背景部分=0），之后上采样该特征向量至query特征图大小后对二者做concat操作。
-
-### Iterative Optimization Module
-
-将上一次迭代生成的mask$y_(t-1)$和原始特征$x$做concat操作后作为该次迭代的输入。（mask指的是softmax后得到的confidence map，不是传统意义上的0和1那种mask）训练时为了避免过拟合，使用空mask（填满一个概率值$p_r$）作为mask输入。
-
-### Attention Mechanism
-
-为了提高k-shot分割效果，在DCM中加入注意力机制，由两个卷积block构成（256 3x3+3x3maxpool，3x3卷积+GAP）最后通过softmax得到每个support example的权重分数，各自与对应的权重分数相乘后相加得到最终结果——不同support sample加权的特征和。（疑问：query sample呢？）
--->
 
     </article>
     <!-- license  -->
@@ -823,25 +777,7 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!--
-    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
--->
-</body>
+    </body>
 </html>
 
 
