@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>[Oops] · EdiblE&#39;s Blog</title>
+    <title>few-shot ICLR-2020论文笔记1 · EdiblE&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="four-zero-four-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -211,6 +211,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">EdiblE&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">few-shot ICLR-2020论文笔记1</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">EdiblE's Blog.</a>
 </header>
@@ -222,12 +231,14 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
     
     
-    <!-- about页 -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/IMG_1154.PNG)"></div>
@@ -236,18 +247,62 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            [Oops]
-            <!-- about -->
+            few-shot ICLR-2020论文笔记1
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-                404,Eaten;
+            
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Few-shot">Few-shot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="小样本">小样本</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">839</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/02/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -348,8 +403,87 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="A-BASELINE-FOR-FEW-SHOT-IMAGE-CLASSIFICATION"><a href="#A-BASELINE-FOR-FEW-SHOT-IMAGE-CLASSIFICATION" class="headerlink" title="A BASELINE FOR FEW-SHOT IMAGE CLASSIFICATION"></a>A BASELINE FOR FEW-SHOT IMAGE CLASSIFICATION</h2><p><a href="https://openreview.net/pdf?id=rylXBkrYDS" target="_blank" rel="noopener">https://openreview.net/pdf?id=rylXBkrYDS</a></p>
+<h3 id="Problem-definition"><a href="#Problem-definition" class="headerlink" title="Problem definition"></a>Problem definition</h3><ul>
+<li>Support Set:$D_s$——k-way N-shot</li>
+<li>Query Set:$D_q$——k-way</li>
+<li>Meta-training Set:$D_m$——用于提前训练的较大数据集</li>
+</ul>
+<p>分析得到用于$D_s$与$D_q$的分类器形式为:</p>
+<p><img src="4.png" alt="(4)"></p>
+<p>使用$D_m$来训练出用于$D_s$与$D_q$的模型。</p>
+<h3 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h3><p>最简单的meta-training形式就是用交叉熵loss来预训练，即:</p>
+<p><img src="5.png" alt="(5)"></p>
+<p>使用梯度下降算法来降低loss。</p>
+<p>如果few-shot训练按照上一章中(4)式的形式进行，那么优化与上述(5)式相同，相当于对预训练模型进行微调。<br>需要修改模型以考虑新类别，谨慎的初始化可以使这个过程更有效率</p>
+<h4 id="Support-based-initialization"><a href="#Support-based-initialization" class="headerlink" title="Support-based initialization"></a>Support-based initialization</h4><p>在backbone后加入一层FC“分类层”，以backbone的logits为输入预测labels。ReLU非线性化表示为$(\dot)_+$。</p>
+<p>对于单个support sample$(x,y)$而言，交叉熵中的第一项为$w_y$和$z(x;\theta)$之间的cosine distance，如果这两者均归一化为$l_2$范数且$b_y=0$，可以推出式(6)</p>
+<p><img src="6.png" alt="(6)"></p>
+<p>在归一化为$l_2$范数之后，显然$w_y$和$z(x;\theta)_+$之间的cosine distance被最大化了。</p>
+<p>对于多个support samples per class，在进行(6)式的$l_2$归一化前先对每个class中的$z(x;\theta)_+$取欧几里得平均，最后得到式(7)</p>
+<p><img src="7.png" alt="(7)"></p>
+<p>其中$\Theta={\theta,\omega,b}$，在fine-tuning阶段均为可训练的参数。</p>
+<h4 id="Transductive-fine-tuning"><a href="#Transductive-fine-tuning" class="headerlink" title="Transductive fine-tuning"></a>Transductive fine-tuning</h4><p>在式(4)中，我们假设只有一个query样本。 但是，我们也可以一起处理多个query样本，并对所有未知query标签执行最小化操作。因此为了获得一个峰值后验，或香农熵低的输出，我们提出一个正则化器如下所示：</p>
+<p><img src="8.png" alt="(8)"></p>
+<h3 id="Experimental-results"><a href="#Experimental-results" class="headerlink" title="Experimental results"></a>Experimental results</h3><p>使用WRN-28-10为backbone，使用基本的数据增强，使用包含label smoothing的交叉熵loss，no dropout，使用batch-nomalization，使用cyclic learning rates。</p>
+<p><img src="result1.png" alt="result1"></p>
+<p>support-based initialization有时优于或可与最新算法相媲美，更大的backbone对于few-shot有着更好的处理能力。对于大型的backbone，即使标准的交叉熵pre-training和suppoer-based initialization都有着很好的效果。</p>
+<p>在1-shot 5-way中，仅使用标记的support样例进行fine-tuning会导致轻微的初始化改进，有时会出现边缘退化的现象，但是对于5-shot 5-way而言，non-transductive fine-tuning比最新的技术更优。</p>
+<p>在所有的设定中，transductive fine-tuning可以使1-shot 5-way的准确率比最新技术提高2-7%，在5-shot 5-way的设定中，除了Mini-ImageNet之外其他的均能提高1.5-4%。这显示出使用未标记的query样例对于few-shot至关重要。</p>
+<p>在Mini-ImageNet, CIFAR-FS，FC-100数据集中，使用validation set中的额外数据来pre-train使结果提升了2-8%，这显示出更多的pre-training classes可以提高few-shot的效果，原因为这样可以获得一个更好的映射。</p>
+<p><img src="result2.png" alt="result2"></p>
+<p>上表中显示了使用ImageNet-21k数据集对于大量新类别的few-shot任务进行训练及测试的结果。使用了7491个包含超过1000张图片的类别进行meta-training，以1-shot 5-way为例，在Tiered-Imagenet中准确率为72.87%，而这时的准确率为89%，显示出使用大量类别进行pre-training可能是一个高效的构建大量类别few-shot学习系统的方法。</p>
 
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2020/02/16/few-shot/" title="小样本学习笔记">
+                    <div class="prevTitle">小样本学习笔记</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "6CMLEPr4VVMdICb1i0PM2wq3-gzGzoHsz",
+        appKey: "5qFctCADfUuK6CsxQJC37xUs",
+        placeholder: "It was at this moment, He knew...",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
+</main>
             <!-- profile -->
             
         </div>
@@ -430,6 +564,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-BASELINE-FOR-FEW-SHOT-IMAGE-CLASSIFICATION"><span class="toc-number">1.</span> <span class="toc-text">A BASELINE FOR FEW-SHOT IMAGE CLASSIFICATION</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-definition"><span class="toc-number">1.1.</span> <span class="toc-text">Problem definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Approach"><span class="toc-number">1.2.</span> <span class="toc-text">Approach</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Support-based-initialization"><span class="toc-number">1.2.1.</span> <span class="toc-text">Support-based initialization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Transductive-fine-tuning"><span class="toc-number">1.2.2.</span> <span class="toc-text">Transductive fine-tuning</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Experimental-results"><span class="toc-number">1.3.</span> <span class="toc-text">Experimental results</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -654,6 +806,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
