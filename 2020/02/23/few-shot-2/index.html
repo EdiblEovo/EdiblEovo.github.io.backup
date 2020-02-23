@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>about · EdiblE&#39;s Blog</title>
+    <title>few-shot ICLR-2020论文笔记2 · EdiblE&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="about-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -211,6 +211,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">EdiblE&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">few-shot ICLR-2020论文笔记2</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">EdiblE's Blog.</a>
 </header>
@@ -229,6 +238,7 @@ height:50vh;
     <!-- 主页  -->
     
     
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/IMG_1154.PNG)"></div>
@@ -237,15 +247,62 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            about
+            few-shot ICLR-2020论文笔记2
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="学习笔记">学习笔记</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Few-shot">Few-shot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="小样本">小样本</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/02/23</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -346,11 +403,83 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
-<main class="main about-page">
+            <main class="main post-page">
     <article class="article-entry">
-        <h1 id="I-am-me"><a href="#I-am-me" class="headerlink" title="I am me"></a>I am me</h1>
+        <h2 id="CROSS-DOMAIN-FEW-SHOT-CLASSIFICATION-VIA-LEARNED-FEATURE-WISE-TRANSFORMATION"><a href="#CROSS-DOMAIN-FEW-SHOT-CLASSIFICATION-VIA-LEARNED-FEATURE-WISE-TRANSFORMATION" class="headerlink" title="CROSS-DOMAIN FEW-SHOT CLASSIFICATION VIA LEARNED FEATURE-WISE TRANSFORMATION"></a>CROSS-DOMAIN FEW-SHOT CLASSIFICATION VIA LEARNED FEATURE-WISE TRANSFORMATION</h2><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>提出了一个feature-wise变换层的结构，并提出一个learning-to-learn算法，通过使用多个已知域模拟泛化过程来优化feature-wise变换层的超参。实验表明该方法可以用于多个基于度量的few-shot分类算法，并显示出优于baseline的性能。</p>
+<h3 id="Problem-definition"><a href="#Problem-definition" class="headerlink" title="Problem definition"></a>Problem definition</h3><p>主要目标为改进在训练与测试图片域不同时造成的性能下降问题，如下图所示</p>
+<p><img src="Fig1.PNG" alt="(Fig1)"></p>
+<p>Task $T$包括Support set$S={(X_s,Y_s)}$和Query set$Q={(X_q,Y_q)}$</p>
+<p>特征提取器$E$首先提取出support和query中的特征，之后用度量函数$M$通过support图片的标签$Y_s$、编码后的support和query图片$E(x^s)$和$E(x^q)$来预测query图片的类别，如式(1)所示。</p>
+<p><img src="1.PNG" alt="(1)"></p>
+<p>最后，训练的目标就是query set中的分类loss，即式(2)。</p>
+<p><img src="2.PNG" alt="(2)"></p>
+<p>在本论文中，定义一个域中包含一个few-shot分类任务的集合，即$T={T_1,T_2,…,T_n}$。假设在训练阶段有$N$个已知的域${T_1^{seen},T_2^{seen},…,T_n^{seen}}$，目标是通过已知的域训练出一个模型能对于未知的域$T^{unseen}$有较好的效果。<br>需要注意的是在训练阶段模型不接触到未知域$T^{unseen}$中的图片数据内容。</p>
+<h3 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h3><p><img src="Fig2.PNG" alt="Fig2"></p>
+<h4 id="FEATURE-WISE-TRANSFORMATION-LAYER"><a href="#FEATURE-WISE-TRANSFORMATION-LAYER" class="headerlink" title="FEATURE-WISE TRANSFORMATION LAYER"></a>FEATURE-WISE TRANSFORMATION LAYER</h4><p>由于域间差异，度量函数$M$很可能会对已知域过拟合，因而对未知域的拟合效果变差。为了解决这个问题，在特征提取器中$E$加入包含仿射变换的feature-wise变换用于增加中间特征的激活性。直观地说，有了feature-wise变换层特征提取器$E$能够产生更为分散的特征分布，因而度量函数$M$的泛化能力得到增强。变化层结构如图2(a)所示。</p>
+<p>其中的超参数$\theta_\gamma$与$\theta_\beta$表示用于仿射变换参数采样的高斯分布的基本差。</p>
+<h4 id="LEARNING-THE-FEATURE-WISE-TRANSFORMATION-LAYERS"><a href="#LEARNING-THE-FEATURE-WISE-TRANSFORMATION-LAYERS" class="headerlink" title="LEARNING THE FEATURE-WISE TRANSFORMATION LAYERS"></a>LEARNING THE FEATURE-WISE TRANSFORMATION LAYERS</h4><p>虽然超参$\theta_f={\theta_\gamma,\theta_\beta}$可以凭经验设置，但事实上手动调整一组对于不同设定有着不同效果参数还是较难的。为了解决这个问题，文中设计出了一种learning-to-learn算法来调整feature-wise变换层的超参。</p>
+<p>核心思想是使用已知域训练基于度量的模型应该能够使模型在未知域中的表现有提升。算法如下图所示</p>
+<p><img src="Alg1.PNG" alt="Alg1"></p>
+<p>在每一次训练迭代$t$中，从已知域${T_1^{seen},T_2^{seen},…,T_n^{seen}}$中采样获得一个pseudo-seen(伪知的)域$T^{ps}$和一个pseudo-unseen(伪未知的)域$T^{pu}$。设模型特征提取器为$E_{\theta_e^t}$，度量函数为$M_{\theta_m^t}$，首先使用超参数$\theta_f={\theta_\gamma,\theta_\beta}$整合进特征提取器中，然后使用式(2)中的loss通过pseudo-seen task$T^{ps}={(X_s^{ps},Y_s^{ps}),(X_q^{ps},Y_q^{ps})}$更新模型的参数，即下式(5)。</p>
+<p><img src="5.PNG" alt="(5)"></p>
+<p>其中$\alpha$为学习率。之后从模型中移除feature-wise变换层后计算模型参数更新后在pseudo-unseen域$T^{pu}={(X_s^{pu},Y_s^{pu}),(X_q^{pu},Y_q^{pu})}$中的分类loss，即式(6)。</p>
+<p><img src="6.PNG" alt="(6)"></p>
+<p>最后，由于$L^{pu}$能够反映出feature-wise变换层的性能，因此对超参数$\theta_f$的优化如下式(7)。</p>
+<p><img src="7.PNG" alt="(7)"></p>
+<p>需要注意的是度量模型和feature-wise变换层在训练过程中是共同优化的。</p>
+<h3 id="Experimental-results"><a href="#Experimental-results" class="headerlink" title="Experimental results"></a>Experimental results</h3><p>使用3种已有的模型来测试feature-wise变换层的效果：MatchingNet，RelationNet，GNN。效果如下表1所示：</p>
+<p><img src="Tab1.PNG" alt="Tab1"></p>
+<p>表1中FT表示使用包含由经验设定超参的feature-wise变换层来训练模型。由表可得，在5-way 1-shot的情况下使用FT对于未知域中的分类结果大多数有1~2%的提升，在5-way 5-shot的情况下多数有1~4%的提升。通过加入FT，GNN模型显现出了STOA的性能。</p>
+<p><img src="Tab2.PNG" alt="Tab2"></p>
+<p>表2中，LFT表示使用上文中提出的learning-to-learn算法来设定参数的FT层对模型表现的影响。可以看出，使用LFT能够使模型在FT的基础上在1-shot问题中平均提高2~3%，5-shot问题中提高2~5%。</p>
+
     </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2020/02/22/few-shot-1/" title="few-shot ICLR-2020论文笔记1">
+                    <div class="prevTitle">few-shot ICLR-2020论文笔记1</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "6CMLEPr4VVMdICb1i0PM2wq3-gzGzoHsz",
+        appKey: "5qFctCADfUuK6CsxQJC37xUs",
+        placeholder: "It was at this moment, He knew...",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -432,6 +561,24 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CROSS-DOMAIN-FEW-SHOT-CLASSIFICATION-VIA-LEARNED-FEATURE-WISE-TRANSFORMATION"><span class="toc-number">1.</span> <span class="toc-text">CROSS-DOMAIN FEW-SHOT CLASSIFICATION VIA LEARNED FEATURE-WISE TRANSFORMATION</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.1.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-definition"><span class="toc-number">1.2.</span> <span class="toc-text">Problem definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Approach"><span class="toc-number">1.3.</span> <span class="toc-text">Approach</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FEATURE-WISE-TRANSFORMATION-LAYER"><span class="toc-number">1.3.1.</span> <span class="toc-text">FEATURE-WISE TRANSFORMATION LAYER</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LEARNING-THE-FEATURE-WISE-TRANSFORMATION-LAYERS"><span class="toc-number">1.3.2.</span> <span class="toc-text">LEARNING THE FEATURE-WISE TRANSFORMATION LAYERS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Experimental-results"><span class="toc-number">1.4.</span> <span class="toc-text">Experimental results</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -668,6 +815,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
